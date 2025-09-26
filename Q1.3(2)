@@ -1,1 +1,31 @@
+#include <iostream>
+#include <vector>
+using namespace std;
 
+bool inC(int n) {
+    int ft=0;
+    for (int i=2;i*i<=n;i++) {
+        if (n%i==0) {
+            ft++;
+            int exp=0;
+            while(n%i==0) {
+                n/=i;
+                exp++;
+                if(exp>1) return false;
+            }
+        }
+    }
+    if (n>1) ft++;
+    return ft == 3;
+}
+
+int main() {
+    vector<int> list;
+    for (int n=1;n<= 12000;n++) {
+        if (inC(n)) {
+            list.push_back(n);
+        }
+    }
+    cout<<list[119]<<endl;
+    return 0;
+}
