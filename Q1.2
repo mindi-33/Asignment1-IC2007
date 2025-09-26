@@ -1,1 +1,22 @@
+#include <iostream>
+using namespace std;
 
+bool inA(int n) {
+    return (n%3==0||n%3== 2)&&(n%7==1||n%7==6);
+}
+
+int main() {
+    int cnt=0;
+    int n=12001;
+    while(cnt<120) {
+        if (inA(n)) {
+            cnt++;
+            if(cnt==120) {
+                cout<<n<<endl;
+                break;
+            }
+        }
+        n++;
+    }
+    return 0;
+}
